@@ -1,0 +1,216 @@
+/*==============
+css
+===============*/
+*{margin:0%;
+    PADDING:0%;
+    box-sizing: border-box;
+}
+
+html{font-family:"dosis",sans-serif ;
+}
+a{color: white;
+    text-decoration: none;}
+i{color: white;
+    }
+    h1,h2,h3{margin-top:10px ;
+    margin-bottom: 20px;
+    font-weight: 700;
+    
+}
+    p{margin-bottom: 15px;}
+    main,aside{padding: 20px 5%;}
+    img{border-radius: 5px;
+    box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.782);
+max-width: 100%;
+}
+
+
+/*==============
+css outer grid
+===============*/
+
+.outer-grid{display: grid;
+    height:100vh;
+grid-template-rows:70px 1fr ;
+grid-template-columns:90px 1fr ;
+grid-template-areas: 
+     "aheader aheader"
+    "anav ainner-grid";
+    
+}
+
+
+.outer-grid-expand{grid-template-areas: 
+    "aheader aheader"
+   "ainner-grid ainner-grid";}
+
+/*==============
+header
+===============*/
+
+header{background-color: rgb(0, 0, 0);
+    grid-area:aheader;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+.left-header  {display: flex;
+    align-items: center;
+    
+
+}
+.fa-bars{ margin-right:7px ;}
+.fa-bars:hover{
+cursor: pointer;
+opacity:0.8 ;
+
+}
+
+.right-header{
+    display: flex;
+}
+.header-link{margin-left:10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+.header-link:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/*==============
+nav
+===============*/
+
+
+
+
+    nav{background-color: rgba(0, 0, 0, 0.796);
+    grid-area: anav;
+    
+}
+.nav-link{
+    
+    display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 30px;
+}
+.nav-link:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    padding-top: 20px;
+}
+
+
+
+
+.hide-nav{display: none;}
+/*
+ ============== 
+inner grid
+===============
+*/
+    .inner-grid{grid-area: ainner-grid;
+        display: grid;
+     
+        
+        overflow-y:scroll;
+    background-color: rgba(0, 0, 0, 0.204);
+grid-template-rows:1fr auto 60px;
+grid-template-columns:  1fr;
+grid-template-areas: "amain amain"
+                     "aside aside"
+                      "afooter afooter ";
+                 
+
+}
+main{
+    grid-area:amain;
+    background-color: rgb(255, 255, 255);
+    
+}
+main a{color:black;
+text-decoration:underline;}
+aside{
+    grid-area: aside;
+    background-color: rgb(255, 255, 255);
+    border-top: 1px solid rgba(0, 0, 0, 0.204);
+    
+}
+footer{display: flex;
+    grid-area: afooter;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+   
+}
+/*
+ ==============
+collage
+===============
+*/
+.collage{display: grid;
+    height: 550px;
+grid-template-rows:1fr ;
+grid-template-columns:1fr 20px 1fr 20px 1fr ;
+align-items: center;
+  }
+  .collage *{grid-row-start: 1;
+grid-row-end: 3;}
+  .collage-1{
+grid-column-start:1 ;
+grid-column-end: 3;
+z-index: 1;
+transform: rotate(-3deg);
+  }
+  .collage-2{
+    grid-column-start:2 ;
+    grid-column-end: 5;
+    z-index: 2;
+  }
+  .collage-3{
+    grid-column-start:4 ;
+    grid-column-end: 6;
+    z-index: 1;
+    transform: rotate(3deg);
+  }
+
+p{font-size:larger;}
+
+ /*
+ ==============
+css responsive
+===============
+*/
+@media (min-width:576px)
+{
+    nav{display: block !important ;}
+    .outer-grid{
+        grid-template-areas: 
+    "aheader aheader"
+   "anav ainner-grid";
+    }
+    .fa-bars{display: none !important;}
+aside{border-left: 1px solid rgba(0, 0, 0, 0.204) ;}
+}
+
+@media (min-width:906px)
+{
+    .inner-grid{grid-area: ainner-grid;
+        display: grid;
+    background-color: rgba(0, 0, 0, 0.204);
+grid-template-rows:1fr 60px;
+grid-template-columns: 75% 25%;
+grid-template-areas: "amain aside"
+                      "afooter afooter ";
+
+}
+
+}
